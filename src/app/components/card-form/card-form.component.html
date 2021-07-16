@@ -1,0 +1,55 @@
+<div class="columns">
+  <div class="column">
+    <app-card-display
+      [name]="cardForm.get('name').value"
+      [cardNum]="cardForm.get('cardNum').value"
+      [expiration]="cardForm.get('expiration').value"
+    ></app-card-display>
+  </div>
+  <div class="column">
+    <form action="" [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+      <app-input
+        label="Name"
+        [control11]="cardForm.get('name')">
+      </app-input>
+
+      <app-input
+        label="Card Number"  
+        [control11]="cardForm.get('cardNum')">
+      </app-input>
+
+      <div class="columns">
+        <div class="column">
+          <app-input
+            label="Expiration (MM/YY)"  
+            [control11]="cardForm.get('expiration')">
+          </app-input>
+        </div>
+        <div class="column">
+          <app-input
+            label="Security Code"  
+            [control11]="cardForm.get('securityCode')">
+          </app-input>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="sumbmit" class="button is-success is-light"
+        [disabled]="cardForm.invalid">enter</button>
+        <button type="button" class="button is-warning is-light"
+          (click)="onClear()">
+          clear
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+<hr>
+<div>Form Contents: {{ cardForm.value | json }}</div>
+<div>Form is valid: {{ cardForm.valid }}</div>
+<div>errs around name: {{ cardForm.controls.name.errors | json }}</div>
+using type="button" instead of type="submit" prevents default behaiviour
