@@ -44,12 +44,3 @@
     </form>
   </div>
 </div>
-
-
-
-
-<hr>
-<div>Form Contents: {{ cardForm.value | json }}</div>
-<div>Form is valid: {{ cardForm.valid }}</div>
-<div>errs around name: {{ cardForm.controls.name.errors | json }}</div>
-using type="button" instead of type="submit" prevents default behaiviour
